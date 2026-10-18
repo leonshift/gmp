@@ -1,0 +1,1632 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Sun Oct 18 09:34:25 2026
+| Host         : x3d2 running 64-bit Ubuntu 24.04.4 LTS
+| Command      : report_timing -setup -max_paths 20 -nworst 1 -file build/board/release-p2-b8-c0/setup.rpt
+| Design       : top
+| Device       : 7k480t-ffg1156
+| Speed File   : -2  PRODUCTION 1.12 2017-02-17
+-----------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.768ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[2]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.552ns  (logic 1.929ns (34.741%)  route 3.623ns (65.259%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.159ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.346ns = ( 9.346 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.846ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.563     4.846                         u_cpu/u_soc/u_ilm_dlm/planes_10/clk
+                  RAMB36_X1Y20         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       RAMB36_X1Y20         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.646 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/DOADO[0]
+                                       net (fo=14, routed)          1.072     7.718                         u_cpu/u_soc/u_ilm_dlm/planes_26/b_q[0]
+    Routing       SLICE_X43Y124                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/I3
+    Routing       SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.043     7.761 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/O
+                                       net (fo=1, routed)           0.417     8.178                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/p_2_in__0[1]
+    Routing       SLICE_X49Y128                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/I1
+    Routing       SLICE_X49Y128        LUT6 (Prop_lut6_I1_O)        0.043     8.221 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/O
+                                       net (fo=1, routed)           0.370     8.591                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[2]
+    Routing       SLICE_X53Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/I0
+    Placement     SLICE_X53Y131        LUT3 (Prop_lut3_I0_O)        0.043     8.634 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/O
+                                       net (fo=33, routed)          1.765    10.399                         u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/D[2]
+    Placement     SLICE_X55Y132        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[2]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.316     9.346                         u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/clk
+                  SLICE_X55Y132        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[2]/C
+                                       clock pessimism              0.342     9.688                           
+                                       clock uncertainty           -0.038     9.650                           
+                  SLICE_X55Y132        FDSE (Setup_fdse_C_D)       -0.019     9.631    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[2]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.631                           
+                                       arrival time                         -10.399                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.768                           
+
+Slack (VIOLATED) :        -0.711ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/data_reg[13]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.487ns  (logic 1.929ns (35.156%)  route 3.558ns (64.844%))
+  Logic Levels:           3  (LUT3=2 LUT6=1)
+  Clock Path Skew:        -0.156ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.347ns = ( 9.347 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.844ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.561     4.844                         u_cpu/u_soc/u_ilm_dlm/planes_29/clk
+                  RAMB36_X1Y21         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Placement     RAMB36_X1Y21         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.644 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/DOADO[0]
+                                       net (fo=5, routed)           0.936     7.580                         u_cpu/u_soc/u_ilm_dlm/planes_29/u_ilm_dlm_b_q[29]
+    Placement     SLICE_X31Y126                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/wb_data_inferred_i_36/I0
+    Routing       SLICE_X31Y126        LUT3 (Prop_lut3_I0_O)        0.043     7.623 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/wb_data_inferred_i_36/O
+                                       net (fo=5, routed)           0.817     8.439                         u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/cpu_load_data[22]
+    Routing       SLICE_X56Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_52/I1
+    Placement     SLICE_X56Y131        LUT6 (Prop_lut6_I1_O)        0.043     8.482 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_52/O
+                                       net (fo=1, routed)           0.188     8.671                         u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/response_aligned_value[13]
+    Placement     SLICE_X56Y132                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_19/I0
+    Placement     SLICE_X56Y132        LUT3 (Prop_lut3_I0_O)        0.043     8.714 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_19/O
+                                       net (fo=33, routed)          1.617    10.331                         u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/D[13]
+    Placement     SLICE_X63Y137        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/data_reg[13]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.317     9.347                         u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/clk
+                  SLICE_X63Y137        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/data_reg[13]/C
+                                       clock pessimism              0.342     9.689                           
+                                       clock uncertainty           -0.038     9.651                           
+                  SLICE_X63Y137        FDSE (Setup_fdse_C_D)       -0.031     9.620    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/data_reg[13]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.620                           
+                                       arrival time                         -10.331                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.711                           
+
+Slack (VIOLATED) :        -0.653ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_15/u_word/data_reg[13]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.437ns  (logic 1.929ns (35.481%)  route 3.508ns (64.519%))
+  Logic Levels:           3  (LUT3=2 LUT6=1)
+  Clock Path Skew:        -0.157ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.346ns = ( 9.346 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.844ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.561     4.844                         u_cpu/u_soc/u_ilm_dlm/planes_29/clk
+                  RAMB36_X1Y21         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Placement     RAMB36_X1Y21         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.644 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/DOADO[0]
+                                       net (fo=5, routed)           0.936     7.580                         u_cpu/u_soc/u_ilm_dlm/planes_29/u_ilm_dlm_b_q[29]
+    Placement     SLICE_X31Y126                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/wb_data_inferred_i_36/I0
+    Routing       SLICE_X31Y126        LUT3 (Prop_lut3_I0_O)        0.043     7.623 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/wb_data_inferred_i_36/O
+                                       net (fo=5, routed)           0.817     8.439                         u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/cpu_load_data[22]
+    Routing       SLICE_X56Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_52/I1
+    Placement     SLICE_X56Y131        LUT6 (Prop_lut6_I1_O)        0.043     8.482 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_52/O
+                                       net (fo=1, routed)           0.188     8.671                         u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/response_aligned_value[13]
+    Placement     SLICE_X56Y132                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_19/I0
+    Placement     SLICE_X56Y132        LUT3 (Prop_lut3_I0_O)        0.043     8.714 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_19/O
+                                       net (fo=33, routed)          1.567    10.281                         u_cpu/u_soc/u_core/u_four/rf_words_15/u_word/D[13]
+    Placement     SLICE_X60Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_15/u_word/data_reg[13]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.316     9.346                         u_cpu/u_soc/u_core/u_four/rf_words_15/u_word/clk
+                  SLICE_X60Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_15/u_word/data_reg[13]/C
+                                       clock pessimism              0.342     9.688                           
+                                       clock uncertainty           -0.038     9.650                           
+                  SLICE_X60Y133        FDSE (Setup_fdse_C_D)       -0.022     9.628    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_15/u_word/data_reg[13]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.628                           
+                                       arrival time                         -10.281                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.653                           
+
+Slack (VIOLATED) :        -0.640ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_13/u_word/data_reg[2]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.442ns  (logic 1.929ns (35.446%)  route 3.513ns (64.554%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.159ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.346ns = ( 9.346 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.846ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.563     4.846                         u_cpu/u_soc/u_ilm_dlm/planes_10/clk
+                  RAMB36_X1Y20         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       RAMB36_X1Y20         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.646 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/DOADO[0]
+                                       net (fo=14, routed)          1.072     7.718                         u_cpu/u_soc/u_ilm_dlm/planes_26/b_q[0]
+    Routing       SLICE_X43Y124                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/I3
+    Routing       SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.043     7.761 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/O
+                                       net (fo=1, routed)           0.417     8.178                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/p_2_in__0[1]
+    Routing       SLICE_X49Y128                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/I1
+    Routing       SLICE_X49Y128        LUT6 (Prop_lut6_I1_O)        0.043     8.221 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/O
+                                       net (fo=1, routed)           0.370     8.591                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[2]
+    Routing       SLICE_X53Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/I0
+    Placement     SLICE_X53Y131        LUT3 (Prop_lut3_I0_O)        0.043     8.634 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/O
+                                       net (fo=33, routed)          1.654    10.288                         u_cpu/u_soc/u_core/u_four/rf_words_13/u_word/D[2]
+    Placement     SLICE_X54Y132        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_13/u_word/data_reg[2]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.316     9.346                         u_cpu/u_soc/u_core/u_four/rf_words_13/u_word/clk
+                  SLICE_X54Y132        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_13/u_word/data_reg[2]/C
+                                       clock pessimism              0.342     9.688                           
+                                       clock uncertainty           -0.038     9.650                           
+                  SLICE_X54Y132        FDSE (Setup_fdse_C_D)       -0.002     9.648    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_13/u_word/data_reg[2]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.648                           
+                                       arrival time                         -10.288                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.640                           
+
+Slack (VIOLATED) :        -0.638ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/data_reg[6]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.459ns  (logic 1.929ns (35.337%)  route 3.530ns (64.663%))
+  Logic Levels:           3  (LUT3=2 LUT6=1)
+  Clock Path Skew:        -0.132ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.357ns = ( 9.357 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.830ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.547     4.830                         u_cpu/u_soc/u_ilm_dlm/planes_6/clk
+                  RAMB36_X0Y24         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Placement     RAMB36_X0Y24         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.630 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/DOADO[0]
+                                       net (fo=13, routed)          0.893     7.523                         u_cpu/u_soc/u_ilm_dlm/planes_6/DOADO[0]
+    Placement     SLICE_X35Y123                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/data[6]_i_10/I0
+    Placement     SLICE_X35Y123        LUT3 (Prop_lut3_I0_O)        0.043     7.566 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/data[6]_i_10/O
+                                       net (fo=4, routed)           0.871     8.437                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/cpu_load_data[5]
+    Placement     SLICE_X50Y137                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_60/I4
+    Routing       SLICE_X50Y137        LUT6 (Prop_lut6_I4_O)        0.043     8.480 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_60/O
+                                       net (fo=1, routed)           0.235     8.716                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[6]
+    Routing       SLICE_X53Y136                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_26/I0
+    Placement     SLICE_X53Y136        LUT3 (Prop_lut3_I0_O)        0.043     8.759 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_26/O
+                                       net (fo=33, routed)          1.530    10.289                         u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/D[6]
+    Placement     SLICE_X50Y140        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/data_reg[6]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.327     9.357                         u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/clk
+                  SLICE_X50Y140        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/data_reg[6]/C
+                                       clock pessimism              0.342     9.699                           
+                                       clock uncertainty           -0.038     9.661                           
+                  SLICE_X50Y140        FDSE (Setup_fdse_C_D)       -0.010     9.651    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/data_reg[6]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.651                           
+                                       arrival time                         -10.289                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.638                           
+
+Slack (VIOLATED) :        -0.596ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/data_reg[2]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.369ns  (logic 1.929ns (35.931%)  route 3.440ns (64.069%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.159ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.346ns = ( 9.346 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.846ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.563     4.846                         u_cpu/u_soc/u_ilm_dlm/planes_10/clk
+                  RAMB36_X1Y20         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       RAMB36_X1Y20         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.646 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/DOADO[0]
+                                       net (fo=14, routed)          1.072     7.718                         u_cpu/u_soc/u_ilm_dlm/planes_26/b_q[0]
+    Routing       SLICE_X43Y124                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/I3
+    Routing       SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.043     7.761 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/O
+                                       net (fo=1, routed)           0.417     8.178                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/p_2_in__0[1]
+    Routing       SLICE_X49Y128                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/I1
+    Routing       SLICE_X49Y128        LUT6 (Prop_lut6_I1_O)        0.043     8.221 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/O
+                                       net (fo=1, routed)           0.370     8.591                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[2]
+    Routing       SLICE_X53Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/I0
+    Placement     SLICE_X53Y131        LUT3 (Prop_lut3_I0_O)        0.043     8.634 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/O
+                                       net (fo=33, routed)          1.581    10.215                         u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/D[2]
+    Placement     SLICE_X59Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/data_reg[2]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.316     9.346                         u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/clk
+                  SLICE_X59Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/data_reg[2]/C
+                                       clock pessimism              0.342     9.688                           
+                                       clock uncertainty           -0.038     9.650                           
+                  SLICE_X59Y133        FDSE (Setup_fdse_C_D)       -0.031     9.619    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_1/u_word/data_reg[2]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.619                           
+                                       arrival time                         -10.215                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.596                           
+
+Slack (VIOLATED) :        -0.585ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_25/u_word/data_reg[6]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.402ns  (logic 1.929ns (35.708%)  route 3.473ns (64.292%))
+  Logic Levels:           3  (LUT3=2 LUT6=1)
+  Clock Path Skew:        -0.144ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.345ns = ( 9.345 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.830ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.547     4.830                         u_cpu/u_soc/u_ilm_dlm/planes_6/clk
+                  RAMB36_X0Y24         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Placement     RAMB36_X0Y24         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.630 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/DOADO[0]
+                                       net (fo=13, routed)          0.893     7.523                         u_cpu/u_soc/u_ilm_dlm/planes_6/DOADO[0]
+    Placement     SLICE_X35Y123                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/data[6]_i_10/I0
+    Placement     SLICE_X35Y123        LUT3 (Prop_lut3_I0_O)        0.043     7.566 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/data[6]_i_10/O
+                                       net (fo=4, routed)           0.871     8.437                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/cpu_load_data[5]
+    Placement     SLICE_X50Y137                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_60/I4
+    Routing       SLICE_X50Y137        LUT6 (Prop_lut6_I4_O)        0.043     8.480 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_60/O
+                                       net (fo=1, routed)           0.235     8.716                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[6]
+    Routing       SLICE_X53Y136                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_26/I0
+    Placement     SLICE_X53Y136        LUT3 (Prop_lut3_I0_O)        0.043     8.759 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_26/O
+                                       net (fo=33, routed)          1.474    10.232                         u_cpu/u_soc/u_core/u_four/rf_words_25/u_word/D[6]
+    Placement     SLICE_X54Y131        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_25/u_word/data_reg[6]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.315     9.345                         u_cpu/u_soc/u_core/u_four/rf_words_25/u_word/clk
+                  SLICE_X54Y131        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_25/u_word/data_reg[6]/C
+                                       clock pessimism              0.342     9.687                           
+                                       clock uncertainty           -0.038     9.649                           
+                  SLICE_X54Y131        FDSE (Setup_fdse_C_D)       -0.002     9.647    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_25/u_word/data_reg[6]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.647                           
+                                       arrival time                         -10.232                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.585                           
+
+Slack (VIOLATED) :        -0.573ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_9/u_word/data_reg[13]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.346ns  (logic 1.929ns (36.082%)  route 3.417ns (63.917%))
+  Logic Levels:           3  (LUT3=2 LUT6=1)
+  Clock Path Skew:        -0.159ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.344ns = ( 9.344 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.844ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.561     4.844                         u_cpu/u_soc/u_ilm_dlm/planes_29/clk
+                  RAMB36_X1Y21         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Placement     RAMB36_X1Y21         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.644 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/DOADO[0]
+                                       net (fo=5, routed)           0.936     7.580                         u_cpu/u_soc/u_ilm_dlm/planes_29/u_ilm_dlm_b_q[29]
+    Placement     SLICE_X31Y126                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/wb_data_inferred_i_36/I0
+    Routing       SLICE_X31Y126        LUT3 (Prop_lut3_I0_O)        0.043     7.623 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/wb_data_inferred_i_36/O
+                                       net (fo=5, routed)           0.817     8.439                         u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/cpu_load_data[22]
+    Routing       SLICE_X56Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_52/I1
+    Placement     SLICE_X56Y131        LUT6 (Prop_lut6_I1_O)        0.043     8.482 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_52/O
+                                       net (fo=1, routed)           0.188     8.671                         u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/response_aligned_value[13]
+    Placement     SLICE_X56Y132                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_19/I0
+    Placement     SLICE_X56Y132        LUT3 (Prop_lut3_I0_O)        0.043     8.714 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_19/O
+                                       net (fo=33, routed)          1.477    10.190                         u_cpu/u_soc/u_core/u_four/rf_words_9/u_word/D[13]
+    Placement     SLICE_X63Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_9/u_word/data_reg[13]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.314     9.344                         u_cpu/u_soc/u_core/u_four/rf_words_9/u_word/clk
+                  SLICE_X63Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_9/u_word/data_reg[13]/C
+                                       clock pessimism              0.342     9.686                           
+                                       clock uncertainty           -0.038     9.648                           
+                  SLICE_X63Y133        FDSE (Setup_fdse_C_D)       -0.031     9.617    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_9/u_word/data_reg[13]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.617                           
+                                       arrival time                         -10.190                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.573                           
+
+Slack (VIOLATED) :        -0.525ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_8/u_word/data_reg[2]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.330ns  (logic 1.929ns (36.189%)  route 3.401ns (63.811%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.155ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.350ns = ( 9.350 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.846ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.563     4.846                         u_cpu/u_soc/u_ilm_dlm/planes_10/clk
+                  RAMB36_X1Y20         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       RAMB36_X1Y20         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.646 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/DOADO[0]
+                                       net (fo=14, routed)          1.072     7.718                         u_cpu/u_soc/u_ilm_dlm/planes_26/b_q[0]
+    Routing       SLICE_X43Y124                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/I3
+    Routing       SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.043     7.761 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/O
+                                       net (fo=1, routed)           0.417     8.178                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/p_2_in__0[1]
+    Routing       SLICE_X49Y128                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/I1
+    Routing       SLICE_X49Y128        LUT6 (Prop_lut6_I1_O)        0.043     8.221 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/O
+                                       net (fo=1, routed)           0.370     8.591                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[2]
+    Routing       SLICE_X53Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/I0
+    Placement     SLICE_X53Y131        LUT3 (Prop_lut3_I0_O)        0.043     8.634 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/O
+                                       net (fo=33, routed)          1.543    10.176                         u_cpu/u_soc/u_core/u_four/rf_words_8/u_word/D[2]
+    Placement     SLICE_X54Y138        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_8/u_word/data_reg[2]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.320     9.350                         u_cpu/u_soc/u_core/u_four/rf_words_8/u_word/clk
+                  SLICE_X54Y138        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_8/u_word/data_reg[2]/C
+                                       clock pessimism              0.342     9.692                           
+                                       clock uncertainty           -0.038     9.654                           
+                  SLICE_X54Y138        FDSE (Setup_fdse_C_D)       -0.002     9.652    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_8/u_word/data_reg[2]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.652                           
+                                       arrival time                         -10.176                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.525                           
+
+Slack (VIOLATED) :        -0.492ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_28/u_word/data_reg[12]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.338ns  (logic 1.929ns (36.137%)  route 3.409ns (63.863%))
+  Logic Levels:           3  (LUT3=2 LUT6=1)
+  Clock Path Skew:        -0.086ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.349ns = ( 9.349 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.776ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.493     4.776                         u_cpu/u_soc/u_ilm_dlm/planes_28/clk
+                  RAMB36_X2Y22         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       RAMB36_X2Y22         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.576 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/DOADO[0]
+                                       net (fo=4, routed)           0.644     7.220                         u_cpu/u_soc/u_ilm_dlm/planes_28/u_ilm_dlm_b_q[28]
+    Routing       SLICE_X39Y121                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/wb_data_inferred_i_37/I0
+    Routing       SLICE_X39Y121        LUT3 (Prop_lut3_I0_O)        0.043     7.263 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/wb_data_inferred_i_37/O
+                                       net (fo=5, routed)           0.975     8.238                         u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/cpu_load_data[21]
+    Routing       SLICE_X52Y133                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_53/I1
+    Routing       SLICE_X52Y133        LUT6 (Prop_lut6_I1_O)        0.043     8.281 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_53/O
+                                       net (fo=1, routed)           0.161     8.442                         u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/response_aligned_value[12]
+    Routing       SLICE_X52Y133                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_20/I0
+    Placement     SLICE_X52Y133        LUT3 (Prop_lut3_I0_O)        0.043     8.485 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_f3/u_word/wb_data_inferred_i_20/O
+                                       net (fo=33, routed)          1.629    10.114                         u_cpu/u_soc/u_core/u_four/rf_words_28/u_word/D[12]
+    Placement     SLICE_X61Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_28/u_word/data_reg[12]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.319     9.349                         u_cpu/u_soc/u_core/u_four/rf_words_28/u_word/clk
+                  SLICE_X61Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_28/u_word/data_reg[12]/C
+                                       clock pessimism              0.342     9.691                           
+                                       clock uncertainty           -0.038     9.653                           
+                  SLICE_X61Y136        FDSE (Setup_fdse_C_D)       -0.031     9.622    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_28/u_word/data_reg[12]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.622                           
+                                       arrival time                         -10.114                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.492                           
+
+Slack (VIOLATED) :        -0.483ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/C
+                            (falling edge-triggered cell FDRE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[10]/S
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (clk_raw rise@5.000ns - clk_raw fall@2.500ns)
+  Data Path Delay:        2.593ns  (logic 0.357ns (13.768%)  route 2.236ns (86.232%))
+  Logic Levels:           3  (LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.048ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.347ns = ( 9.347 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.737ns = ( 7.237 - 2.500 ) 
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw fall edge)    2.500     2.500 f                       
+                  AA28                                              0.000     2.500 f                       clk_50m (IN)
+                                       net (fo=0)                   0.000     2.500                         clk_50m
+                  AA28                                                              f                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     3.993 f                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     5.691                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     f                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     5.784 f                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     7.806                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    f                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     3.147 f                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     5.691                         clk_raw
+                  BUFGCTRL_X0Y0                                                     f                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     5.784 f                       u_clock/O
+                                       net (fo=6428, routed)        1.453     7.237                         u_cpu/u_soc/u_core/u_four/u_rf_write/clk
+                  SLICE_X67Y139        FDRE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/C  (IS_INVERTED)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       SLICE_X67Y139        FDRE (Prop_fdre_C_Q)         0.228     7.465 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/Q
+                                       net (fo=31, routed)          0.677     8.142                         u_cpu/u_soc/u_core/u_four/u_rf_write/u_rf_write_address_q[3]
+    Routing       SLICE_X67Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27/I2
+    Routing       SLICE_X67Y137        LUT6 (Prop_lut6_I2_O)        0.043     8.185 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27/O
+                                       net (fo=1, routed)           0.150     8.335                         u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27_n_0
+    Routing       SLICE_X67Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_2__27/I1
+    Routing       SLICE_X67Y137        LUT2 (Prop_lut2_I1_O)        0.043     8.378 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_2__27/O
+                                       net (fo=33, routed)          0.209     8.587                         u_cpu/u_soc/u_core/u_four/u_rf_write/held_reset_reg_54
+    Routing       SLICE_X69Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_1__27/I1
+    Placement     SLICE_X69Y137        LUT2 (Prop_lut2_I1_O)        0.043     8.630 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_1__27/O
+                                       net (fo=32, routed)          1.200     9.829                         u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/SS[0]
+    Placement     SLICE_X63Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[10]/S
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.317     9.347                         u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/clk
+                  SLICE_X63Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[10]/C
+                                       clock pessimism              0.342     9.689                           
+                                       clock uncertainty           -0.038     9.651                           
+                  SLICE_X63Y136        FDSE (Setup_fdse_C_S)       -0.304     9.347    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[10]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.347                           
+                                       arrival time                          -9.829                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.483                           
+
+Slack (VIOLATED) :        -0.483ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/C
+                            (falling edge-triggered cell FDRE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[13]/S
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (clk_raw rise@5.000ns - clk_raw fall@2.500ns)
+  Data Path Delay:        2.593ns  (logic 0.357ns (13.768%)  route 2.236ns (86.232%))
+  Logic Levels:           3  (LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.048ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.347ns = ( 9.347 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.737ns = ( 7.237 - 2.500 ) 
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw fall edge)    2.500     2.500 f                       
+                  AA28                                              0.000     2.500 f                       clk_50m (IN)
+                                       net (fo=0)                   0.000     2.500                         clk_50m
+                  AA28                                                              f                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     3.993 f                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     5.691                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     f                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     5.784 f                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     7.806                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    f                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     3.147 f                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     5.691                         clk_raw
+                  BUFGCTRL_X0Y0                                                     f                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     5.784 f                       u_clock/O
+                                       net (fo=6428, routed)        1.453     7.237                         u_cpu/u_soc/u_core/u_four/u_rf_write/clk
+                  SLICE_X67Y139        FDRE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/C  (IS_INVERTED)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       SLICE_X67Y139        FDRE (Prop_fdre_C_Q)         0.228     7.465 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/Q
+                                       net (fo=31, routed)          0.677     8.142                         u_cpu/u_soc/u_core/u_four/u_rf_write/u_rf_write_address_q[3]
+    Routing       SLICE_X67Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27/I2
+    Routing       SLICE_X67Y137        LUT6 (Prop_lut6_I2_O)        0.043     8.185 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27/O
+                                       net (fo=1, routed)           0.150     8.335                         u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27_n_0
+    Routing       SLICE_X67Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_2__27/I1
+    Routing       SLICE_X67Y137        LUT2 (Prop_lut2_I1_O)        0.043     8.378 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_2__27/O
+                                       net (fo=33, routed)          0.209     8.587                         u_cpu/u_soc/u_core/u_four/u_rf_write/held_reset_reg_54
+    Routing       SLICE_X69Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_1__27/I1
+    Placement     SLICE_X69Y137        LUT2 (Prop_lut2_I1_O)        0.043     8.630 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_1__27/O
+                                       net (fo=32, routed)          1.200     9.829                         u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/SS[0]
+    Placement     SLICE_X63Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[13]/S
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.317     9.347                         u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/clk
+                  SLICE_X63Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[13]/C
+                                       clock pessimism              0.342     9.689                           
+                                       clock uncertainty           -0.038     9.651                           
+                  SLICE_X63Y136        FDSE (Setup_fdse_C_S)       -0.304     9.347    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[13]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.347                           
+                                       arrival time                          -9.829                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.483                           
+
+Slack (VIOLATED) :        -0.483ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/C
+                            (falling edge-triggered cell FDRE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[4]/S
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (clk_raw rise@5.000ns - clk_raw fall@2.500ns)
+  Data Path Delay:        2.593ns  (logic 0.357ns (13.768%)  route 2.236ns (86.232%))
+  Logic Levels:           3  (LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.048ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.347ns = ( 9.347 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.737ns = ( 7.237 - 2.500 ) 
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw fall edge)    2.500     2.500 f                       
+                  AA28                                              0.000     2.500 f                       clk_50m (IN)
+                                       net (fo=0)                   0.000     2.500                         clk_50m
+                  AA28                                                              f                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     3.993 f                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     5.691                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     f                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     5.784 f                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     7.806                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    f                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     3.147 f                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     5.691                         clk_raw
+                  BUFGCTRL_X0Y0                                                     f                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     5.784 f                       u_clock/O
+                                       net (fo=6428, routed)        1.453     7.237                         u_cpu/u_soc/u_core/u_four/u_rf_write/clk
+                  SLICE_X67Y139        FDRE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/C  (IS_INVERTED)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       SLICE_X67Y139        FDRE (Prop_fdre_C_Q)         0.228     7.465 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[3]/Q
+                                       net (fo=31, routed)          0.677     8.142                         u_cpu/u_soc/u_core/u_four/u_rf_write/u_rf_write_address_q[3]
+    Routing       SLICE_X67Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27/I2
+    Routing       SLICE_X67Y137        LUT6 (Prop_lut6_I2_O)        0.043     8.185 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27/O
+                                       net (fo=1, routed)           0.150     8.335                         u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__27_n_0
+    Routing       SLICE_X67Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_2__27/I1
+    Routing       SLICE_X67Y137        LUT2 (Prop_lut2_I1_O)        0.043     8.378 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_2__27/O
+                                       net (fo=33, routed)          0.209     8.587                         u_cpu/u_soc/u_core/u_four/u_rf_write/held_reset_reg_54
+    Routing       SLICE_X69Y137                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_1__27/I1
+    Placement     SLICE_X69Y137        LUT2 (Prop_lut2_I1_O)        0.043     8.630 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_1__27/O
+                                       net (fo=32, routed)          1.200     9.829                         u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/SS[0]
+    Placement     SLICE_X63Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[4]/S
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.317     9.347                         u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/clk
+                  SLICE_X63Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[4]/C
+                                       clock pessimism              0.342     9.689                           
+                                       clock uncertainty           -0.038     9.651                           
+                  SLICE_X63Y136        FDSE (Setup_fdse_C_S)       -0.304     9.347    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_27/u_word/data_reg[4]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.347                           
+                                       arrival time                          -9.829                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.483                           
+
+Slack (VIOLATED) :        -0.472ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_20/u_word/data_reg[2]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.252ns  (logic 1.929ns (36.732%)  route 3.323ns (63.268%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.161ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.344ns = ( 9.344 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.846ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.563     4.846                         u_cpu/u_soc/u_ilm_dlm/planes_10/clk
+                  RAMB36_X1Y20         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       RAMB36_X1Y20         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.646 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/DOADO[0]
+                                       net (fo=14, routed)          1.072     7.718                         u_cpu/u_soc/u_ilm_dlm/planes_26/b_q[0]
+    Routing       SLICE_X43Y124                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/I3
+    Routing       SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.043     7.761 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/O
+                                       net (fo=1, routed)           0.417     8.178                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/p_2_in__0[1]
+    Routing       SLICE_X49Y128                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/I1
+    Routing       SLICE_X49Y128        LUT6 (Prop_lut6_I1_O)        0.043     8.221 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/O
+                                       net (fo=1, routed)           0.370     8.591                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[2]
+    Routing       SLICE_X53Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/I0
+    Placement     SLICE_X53Y131        LUT3 (Prop_lut3_I0_O)        0.043     8.634 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/O
+                                       net (fo=33, routed)          1.464    10.098                         u_cpu/u_soc/u_core/u_four/rf_words_20/u_word/D[2]
+    Placement     SLICE_X65Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_20/u_word/data_reg[2]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.314     9.344                         u_cpu/u_soc/u_core/u_four/rf_words_20/u_word/clk
+                  SLICE_X65Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_20/u_word/data_reg[2]/C
+                                       clock pessimism              0.342     9.686                           
+                                       clock uncertainty           -0.038     9.648                           
+                  SLICE_X65Y133        FDSE (Setup_fdse_C_D)       -0.022     9.626    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_20/u_word/data_reg[2]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.626                           
+                                       arrival time                         -10.098                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.472                           
+
+Slack (VIOLATED) :        -0.465ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_17/u_word/data_reg[2]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.258ns  (logic 1.929ns (36.685%)  route 3.329ns (63.315%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.159ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.346ns = ( 9.346 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.846ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.563     4.846                         u_cpu/u_soc/u_ilm_dlm/planes_10/clk
+                  RAMB36_X1Y20         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       RAMB36_X1Y20         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.646 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_10/mem_reg/DOADO[0]
+                                       net (fo=14, routed)          1.072     7.718                         u_cpu/u_soc/u_ilm_dlm/planes_26/b_q[0]
+    Routing       SLICE_X43Y124                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/I3
+    Routing       SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.043     7.761 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_26/wb_data_inferred_i_85/O
+                                       net (fo=1, routed)           0.417     8.178                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/p_2_in__0[1]
+    Routing       SLICE_X49Y128                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/I1
+    Routing       SLICE_X49Y128        LUT6 (Prop_lut6_I1_O)        0.043     8.221 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_64/O
+                                       net (fo=1, routed)           0.370     8.591                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[2]
+    Routing       SLICE_X53Y131                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/I0
+    Placement     SLICE_X53Y131        LUT3 (Prop_lut3_I0_O)        0.043     8.634 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_30/O
+                                       net (fo=33, routed)          1.470    10.104                         u_cpu/u_soc/u_core/u_four/rf_words_17/u_word/D[2]
+    Placement     SLICE_X58Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_17/u_word/data_reg[2]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.316     9.346                         u_cpu/u_soc/u_core/u_four/rf_words_17/u_word/clk
+                  SLICE_X58Y133        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_17/u_word/data_reg[2]/C
+                                       clock pessimism              0.342     9.688                           
+                                       clock uncertainty           -0.038     9.650                           
+                  SLICE_X58Y133        FDSE (Setup_fdse_C_D)       -0.010     9.640    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_17/u_word/data_reg[2]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.640                           
+                                       arrival time                         -10.104                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.465                           
+
+Slack (VIOLATED) :        -0.402ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_6/u_word/data_reg[4]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.270ns  (logic 1.929ns (36.600%)  route 3.341ns (63.400%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.086ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.349ns = ( 9.349 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.776ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.493     4.776                         u_cpu/u_soc/u_ilm_dlm/planes_28/clk
+                  RAMB36_X2Y22         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       RAMB36_X2Y22         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.576 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/DOADO[0]
+                                       net (fo=4, routed)           0.882     7.458                         u_cpu/u_soc/u_ilm_dlm/planes_28/u_ilm_dlm_b_q[28]
+    Routing       SLICE_X33Y117                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/wb_data_inferred_i_82/I0
+    Routing       SLICE_X33Y117        LUT6 (Prop_lut6_I0_O)        0.043     7.501 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/wb_data_inferred_i_82/O
+                                       net (fo=1, routed)           0.371     7.873                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/p_2_in__0[3]
+    Routing       SLICE_X37Y122                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_62/I1
+    Routing       SLICE_X37Y122        LUT6 (Prop_lut6_I1_O)        0.043     7.916 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_62/O
+                                       net (fo=1, routed)           0.358     8.274                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[4]
+    Routing       SLICE_X42Y122                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_28/I0
+    Placement     SLICE_X42Y122        LUT3 (Prop_lut3_I0_O)        0.043     8.317 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_28/O
+                                       net (fo=33, routed)          1.730    10.047                         u_cpu/u_soc/u_core/u_four/rf_words_6/u_word/D[4]
+    Placement     SLICE_X55Y135        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_6/u_word/data_reg[4]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.319     9.349                         u_cpu/u_soc/u_core/u_four/rf_words_6/u_word/clk
+                  SLICE_X55Y135        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_6/u_word/data_reg[4]/C
+                                       clock pessimism              0.342     9.691                           
+                                       clock uncertainty           -0.038     9.653                           
+                  SLICE_X55Y135        FDSE (Setup_fdse_C_D)       -0.008     9.645    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_6/u_word/data_reg[4]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.645                           
+                                       arrival time                         -10.047                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.402                           
+
+Slack (VIOLATED) :        -0.400ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[2]/C
+                            (falling edge-triggered cell FDRE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_2/u_word/data_reg[2]/S
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            2.500ns  (clk_raw rise@5.000ns - clk_raw fall@2.500ns)
+  Data Path Delay:        2.507ns  (logic 0.357ns (14.240%)  route 2.150ns (85.760%))
+  Logic Levels:           3  (LUT2=2 LUT6=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.345ns = ( 9.345 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.738ns = ( 7.238 - 2.500 ) 
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw fall edge)    2.500     2.500 f                       
+                  AA28                                              0.000     2.500 f                       clk_50m (IN)
+                                       net (fo=0)                   0.000     2.500                         clk_50m
+                  AA28                                                              f                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     3.993 f                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     5.691                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     f                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     5.784 f                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     7.806                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    f                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     3.147 f                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     5.691                         clk_raw
+                  BUFGCTRL_X0Y0                                                     f                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     5.784 f                       u_clock/O
+                                       net (fo=6428, routed)        1.454     7.238                         u_cpu/u_soc/u_core/u_four/u_rf_write/clk
+                  SLICE_X67Y140        FDRE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[2]/C  (IS_INVERTED)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Routing       SLICE_X67Y140        FDRE (Prop_fdre_C_Q)         0.228     7.466 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/held_address_reg[2]/Q
+                                       net (fo=31, routed)          0.636     8.102                         u_cpu/u_soc/u_core/u_four/u_rf_write/u_rf_write_address_q[2]
+    Routing       SLICE_X67Y142                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__2/I0
+    Routing       SLICE_X67Y142        LUT6 (Prop_lut6_I0_O)        0.043     8.145 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__2/O
+                                       net (fo=1, routed)           0.101     8.246                         u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_3__2_n_0
+    Routing       SLICE_X67Y142                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_2__2/I1
+    Routing       SLICE_X67Y142        LUT2 (Prop_lut2_I1_O)        0.043     8.289 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_2__2/O
+                                       net (fo=33, routed)          0.164     8.453                         u_cpu/u_soc/u_core/u_four/u_rf_write/held_reset_reg_4
+    Routing       SLICE_X67Y142                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_1__2/I1
+    Placement     SLICE_X67Y142        LUT2 (Prop_lut2_I1_O)        0.043     8.496 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_rf_write/data[31]_i_1__2/O
+                                       net (fo=32, routed)          1.249     9.745                         u_cpu/u_soc/u_core/u_four/rf_words_2/u_word/SS[0]
+    Placement     SLICE_X56Y131        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_2/u_word/data_reg[2]/S
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.315     9.345                         u_cpu/u_soc/u_core/u_four/rf_words_2/u_word/clk
+                  SLICE_X56Y131        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_2/u_word/data_reg[2]/C
+                                       clock pessimism              0.342     9.687                           
+                                       clock uncertainty           -0.038     9.649                           
+                  SLICE_X56Y131        FDSE (Setup_fdse_C_S)       -0.304     9.345    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_2/u_word/data_reg[2]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.345                           
+                                       arrival time                          -9.745                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.400                           
+
+Slack (VIOLATED) :        -0.399ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/data_reg[6]/D
+                            (rising edge-triggered cell FDSE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.192ns  (logic 1.929ns (37.156%)  route 3.263ns (62.844%))
+  Logic Levels:           3  (LUT3=2 LUT6=1)
+  Clock Path Skew:        -0.139ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.350ns = ( 9.350 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.830ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.547     4.830                         u_cpu/u_soc/u_ilm_dlm/planes_6/clk
+                  RAMB36_X0Y24         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/CLKARDCLK
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Placement     RAMB36_X0Y24         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
+                                                                    1.800     6.630 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/mem_reg/DOADO[0]
+                                       net (fo=13, routed)          0.893     7.523                         u_cpu/u_soc/u_ilm_dlm/planes_6/DOADO[0]
+    Placement     SLICE_X35Y123                                                     f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/data[6]_i_10/I0
+    Placement     SLICE_X35Y123        LUT3 (Prop_lut3_I0_O)        0.043     7.566 f  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_6/data[6]_i_10/O
+                                       net (fo=4, routed)           0.871     8.437                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/cpu_load_data[5]
+    Placement     SLICE_X50Y137                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_60/I4
+    Routing       SLICE_X50Y137        LUT6 (Prop_lut6_I4_O)        0.043     8.480 f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_60/O
+                                       net (fo=1, routed)           0.235     8.716                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/response_aligned_value[6]
+    Routing       SLICE_X53Y136                                                     f  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_26/I0
+    Placement     SLICE_X53Y136        LUT3 (Prop_lut3_I0_O)        0.043     8.759 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/wb_data_inferred_i_26/O
+                                       net (fo=33, routed)          1.263    10.022                         u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/D[6]
+    Placement     SLICE_X57Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/data_reg[6]/D
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.320     9.350                         u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/clk
+                  SLICE_X57Y136        FDSE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/data_reg[6]/C
+                                       clock pessimism              0.342     9.692                           
+                                       clock uncertainty           -0.038     9.654                           
+                  SLICE_X57Y136        FDSE (Setup_fdse_C_D)       -0.031     9.623    p_cpu                  u_cpu/u_soc/u_core/u_four/rf_words_12/u_word/data_reg[6]
+  ---------------------------------------------------------------------------------
+                                       required time                          9.623                           
+                                       arrival time                         -10.022                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.399                           
+
+Slack (VIOLATED) :        -0.386ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[20]/C
+                            (rising edge-triggered cell FDRE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/DIADI[0]
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        5.158ns  (logic 0.345ns (6.689%)  route 4.813ns (93.311%))
+  Logic Levels:           2  (LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.008ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.385ns = ( 9.385 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.736ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.452     4.736                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/clk
+                  SLICE_X52Y130        FDRE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[20]/C
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Placement     SLICE_X52Y130        FDRE (Prop_fdre_C_Q)         0.259     4.995 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[20]/Q
+                                       net (fo=18, routed)          3.077     8.071                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[31]_0[20]
+    Placement     SLICE_X69Y130                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_2__0/I3
+    Routing       SLICE_X69Y130        LUT6 (Prop_lut6_I3_O)        0.043     8.114 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_2__0/O
+                                       net (fo=2, routed)           0.635     8.750                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_2__0_n_0
+    Routing       SLICE_X61Y124                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_1__11/I0
+    Routing       SLICE_X61Y124        LUT5 (Prop_lut5_I0_O)        0.043     8.793 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_1__11/O
+                                       net (fo=1, routed)           1.100     9.893                         u_cpu/u_soc/u_ilm_dlm/planes_28/b_data[0]
+    Routing       RAMB36_X2Y22         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/DIADI[0]
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.356     9.385                         u_cpu/u_soc/u_ilm_dlm/planes_28/clk
+                  RAMB36_X2Y22         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg/CLKARDCLK
+                                       clock pessimism              0.342     9.727                           
+                                       clock uncertainty           -0.038     9.689                           
+                  RAMB36_X2Y22         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_DIADI[0])
+                                                                   -0.182     9.507    p_cpu                  u_cpu/u_soc/u_ilm_dlm/planes_28/mem_reg
+  ---------------------------------------------------------------------------------
+                                       required time                          9.507                           
+                                       arrival time                          -9.893                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.386                           
+
+Slack (VIOLATED) :        -0.383ns  (required time - arrival time)
+  Source:                 u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/ADDRARDADDR[14]
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_raw  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk_raw rise@5.000ns - clk_raw rise@0.000ns)
+  Data Path Delay:        4.987ns  (logic 1.245ns (24.964%)  route 3.742ns (75.036%))
+  Logic Levels:           9  (CARRY4=5 LUT3=2 LUT4=1 LUT6=1)
+  Clock Path Skew:        0.058ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.451ns = ( 9.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    4.736ns
+    Clock Pessimism Removal (CPR):    0.342ns
+  Clock Uncertainty:      0.038ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.026ns
+    Phase Error              (PE):    0.000ns
+
+    Pin Reuse     Location             Delay type                Incr(ns)  Path(ns)    PBlock               Netlist Resource(s)
+  ---------------------------------------------------------------------------------    ----------------------------------------
+                                       (clock clk_raw rise edge)    0.000     0.000 r                       
+                  AA28                                              0.000     0.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     0.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.493     1.493 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.698     3.191                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         2.022     5.306                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.659     0.647 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.544     3.191                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     3.284 r                       u_clock/O
+                                       net (fo=6428, routed)        1.452     4.736                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/clk
+                  SLICE_X52Y130        FDRE                                         r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[4]/C
+  ---------------------------------------------------------------------------------    ----------------------------------------
+    Placement     SLICE_X52Y130        FDRE (Prop_fdre_C_Q)         0.259     4.995 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[4]/Q
+                                       net (fo=21, routed)          0.397     5.391                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[31]_0[4]
+    Placement     SLICE_X53Y129                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data[4]_i_2__0/I0
+    Placement     SLICE_X53Y129        LUT3 (Prop_lut3_I0_O)        0.043     5.434 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data[4]_i_2__0/O
+                                       net (fo=25, routed)          0.493     5.927                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[7]_1[0]
+    Placement     SLICE_X50Y128                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[7]_i_10/DI[0]
+    Routing       SLICE_X50Y128        CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                                    0.283     6.210 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[7]_i_10/CO[3]
+                                       net (fo=1, routed)           0.000     6.210                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[7]_i_10_n_0
+    Routing       SLICE_X50Y129                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_75/CI
+    Routing       SLICE_X50Y129        CARRY4 (Prop_carry4_CI_CO[3])
+                                                                    0.054     6.264 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_75/CO[3]
+                                       net (fo=1, routed)           0.000     6.264                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_75_n_0
+    Routing       SLICE_X50Y130                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_74/CI
+    Routing       SLICE_X50Y130        CARRY4 (Prop_carry4_CI_CO[3])
+                                                                    0.054     6.318 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_74/CO[3]
+                                       net (fo=1, routed)           0.000     6.318                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_74_n_0
+    Routing       SLICE_X50Y131                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/b_write0_i_11/CI
+    Placement     SLICE_X50Y131        CARRY4 (Prop_carry4_CI_CO[0])
+                                                                    0.133     6.451 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/b_write0_i_11/CO[0]
+                                       net (fo=2, routed)           0.471     6.923                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/u_alu_carry16
+    Placement     SLICE_X45Y128                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_93/I3
+    Routing       SLICE_X45Y128        LUT4 (Prop_lut4_I3_O)        0.128     7.051 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_93/O
+                                       net (fo=1, routed)           0.000     7.051                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_93_n_0
+    Routing       SLICE_X45Y128                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_73/S[0]
+    Placement     SLICE_X45Y128        CARRY4 (Prop_carry4_S[0]_O[0])
+                                                                    0.124     7.175 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/holding_operand_a_inferred_i_73/O[0]
+                                       net (fo=6, routed)           0.259     7.433                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/data_reg[0]_1[0]
+    Placement     SLICE_X47Y128                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_21__1/I4
+    Placement     SLICE_X47Y128        LUT6 (Prop_lut6_I4_O)        0.124     7.557 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_21__1/O
+                                       net (fo=5, routed)           1.056     8.613                         u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/memory_b_base[14]
+    Placement     SLICE_X40Y132                                                     r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_1__33/I0
+    Routing       SLICE_X40Y132        LUT3 (Prop_lut3_I0_O)        0.043     8.656 r  p_cpu                u_cpu/u_soc/u_core/u_four/u_gated_w_result/u_word/mem_reg_i_1__33/O
+                                       net (fo=4, routed)           1.066     9.723                         u_cpu/u_soc/u_ilm_dlm/planes_29/ADDRARDADDR[14]
+    Routing       RAMB36_X1Y21         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/ADDRARDADDR[14]
+  ---------------------------------------------------------------------------------    ----------------------------------------
+
+                                       (clock clk_raw rise edge)    5.000     5.000 r                       
+                  AA28                                              0.000     5.000 r                       clk_50m (IN)
+                                       net (fo=0)                   0.000     5.000                         clk_50m
+                  AA28                                                              r                       clk_50m_IBUF_inst/I
+                  AA28                 IBUF (Prop_ibuf_I_O)         1.361     6.361 r                       clk_50m_IBUF_inst/O
+                                       net (fo=1, routed)           1.586     7.947                         clk_50m_IBUF
+                  BUFGCTRL_X0Y2                                                     r                       clk_50m_IBUF_BUFG_inst/I
+                  BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       clk_50m_IBUF_BUFG_inst/O
+                                       net (fo=177, routed)         1.856     9.886                         clk_50m_IBUF_BUFG
+                  PLLE2_ADV_X0Y0                                                    r                       u_mmcm/CLKIN1
+                  PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT1)
+                                                                   -4.348     5.538 r                       u_mmcm/CLKOUT1
+                                       net (fo=1, routed)           2.409     7.947                         clk_raw
+                  BUFGCTRL_X0Y0                                                     r                       u_clock/I
+                  BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     8.030 r                       u_clock/O
+                                       net (fo=6428, routed)        1.422     9.451                         u_cpu/u_soc/u_ilm_dlm/planes_29/clk
+                  RAMB36_X1Y21         RAMB36E1                                     r  p_cpu                u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg/CLKARDCLK
+                                       clock pessimism              0.342     9.793                           
+                                       clock uncertainty           -0.038     9.755                           
+                  RAMB36_X1Y21         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[14])
+                                                                   -0.416     9.339    p_cpu                  u_cpu/u_soc/u_ilm_dlm/planes_29/mem_reg
+  ---------------------------------------------------------------------------------
+                                       required time                          9.339                           
+                                       arrival time                          -9.723                           
+  ---------------------------------------------------------------------------------
+                                       slack                                 -0.383                           
+
+
+
+

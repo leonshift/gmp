@@ -1,0 +1,60 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Sun Oct 18 09:34:25 2026
+| Host         : x3d2 running 64-bit Ubuntu 24.04.4 LTS
+| Command      : report_clocks -file build/board/release-p2-b8-c0/clocks.rpt
+| Design       : top
+| Device       : 7k480t-ffg1156
+| Speed File   : -2  PRODUCTION 1.12 2017-02-17
+------------------------------------------------------------------------------------
+
+Clock Report
+
+
+Attributes
+  P: Propagated
+  G: Generated
+  A: Auto-derived
+  R: Renamed
+  V: Virtual
+  I: Inverted
+  S: Pin phase-shifted with Latency mode
+
+Clock         Period(ns)  Waveform(ns)    Attributes  Sources
+jtag_drck     83.333      {0.000 41.667}  P           {u_bscan/DRCK}
+jtag_update   83.333      {0.000 41.667}  P           {u_bscan/UPDATE}
+ref50         20.000      {0.000 10.000}  P           {clk_50m}
+clk_raw       5.000       {0.000 2.500}   P,G,A       {u_mmcm/CLKOUT1}
+feedback_raw  20.000      {0.000 10.000}  P,G,A       {u_mmcm/CLKFBOUT}
+
+
+====================================================
+Generated Clocks
+====================================================
+
+Generated Clock     : clk_raw
+Master Source       : u_mmcm/CLKIN1
+Master Clock        : ref50
+Multiply By         : 4
+Generated Sources   : {u_mmcm/CLKOUT1}
+
+Generated Clock     : feedback_raw
+Master Source       : u_mmcm/CLKIN1
+Master Clock        : ref50
+Multiply By         : 1
+Generated Sources   : {u_mmcm/CLKFBOUT}
+
+
+
+====================================================
+User Uncertainty
+====================================================
+
+
+
+====================================================
+User Jitter
+====================================================
+
+

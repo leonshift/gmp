@@ -1,0 +1,190 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Sun Oct 18 09:16:30 2026
+| Host         : x3d2 running 64-bit Ubuntu 24.04.4 LTS
+| Command      : report_utilization -hierarchical -file build/board/release-p2-b8-c0/util_synth.rpt
+| Design       : top
+| Device       : xc7k480tffg1156-2
+| Speed File   : -2
+| Design State : Synthesized
+----------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------------------+-------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|             Instance            |          Module         | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++---------------------------------+-------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| top                             |                   (top) |       5158 |       5158 |       0 |    0 | 6834 |     36 |      0 |          0 |
+|   (top)                         |                   (top) |          1 |          1 |       0 |    0 |    3 |      0 |      0 |          0 |
+|   u_bridge                      |          BscanAxiBridge |        244 |        244 |       0 |    0 |  432 |      0 |      0 |          0 |
+|   u_counter                     |            ClockCounter |         17 |         17 |       0 |    0 |   64 |      0 |      0 |          0 |
+|   u_cpu                         |                 Rv32Axi |       4724 |       4724 |       0 |    0 | 6095 |     36 |      0 |          0 |
+|     (u_cpu)                     |                 Rv32Axi |          5 |          5 |       0 |    0 |  105 |      0 |      0 |          0 |
+|     u_soc                       |                 Rv32Soc |       4719 |       4719 |       0 |    0 | 5990 |     36 |      0 |          0 |
+|       (u_soc)                   |                 Rv32Soc |       1507 |       1507 |       0 |    0 | 4571 |      0 |      0 |          0 |
+|       u_core                    |                Rv32Core |       2796 |       2796 |       0 |    0 | 1419 |      0 |      0 |          0 |
+|         u_four                  |               Rv32Core4 |       2796 |       2796 |       0 |    0 | 1419 |      0 |      0 |          0 |
+|           (u_four)              |               Rv32Core4 |        303 |        303 |       0 |    0 |  208 |      0 |      0 |          0 |
+|           rf_words_0            |         ClockedRegister |         88 |         88 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_137 |         88 |         88 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_1            |      ClockedRegister_34 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_136 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_10           |      ClockedRegister_35 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_135 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_11           |      ClockedRegister_36 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_134 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_12           |      ClockedRegister_37 |         64 |         64 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_133 |         64 |         64 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_13           |      ClockedRegister_38 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_132 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_14           |      ClockedRegister_39 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_131 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_15           |      ClockedRegister_40 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_130 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_16           |      ClockedRegister_41 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_129 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_17           |      ClockedRegister_42 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_128 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_18           |      ClockedRegister_43 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_127 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_19           |      ClockedRegister_44 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_126 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_2            |      ClockedRegister_45 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_125 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_20           |      ClockedRegister_46 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_124 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_21           |      ClockedRegister_47 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_123 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_22           |      ClockedRegister_48 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_122 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_23           |      ClockedRegister_49 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_121 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_24           |      ClockedRegister_50 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_120 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_25           |      ClockedRegister_51 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_119 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_26           |      ClockedRegister_52 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_118 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_27           |      ClockedRegister_53 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_117 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_28           |      ClockedRegister_54 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_116 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_29           |      ClockedRegister_55 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_115 |         32 |         32 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_3            |      ClockedRegister_56 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_114 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_30           |      ClockedRegister_57 |         64 |         64 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_113 |         64 |         64 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_4            |      ClockedRegister_58 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_112 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_5            |      ClockedRegister_59 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_111 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_6            |      ClockedRegister_60 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_110 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_7            |      ClockedRegister_61 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_109 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_8            |      ClockedRegister_62 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |        RegisterWord_108 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           rf_words_9            |      ClockedRegister_63 |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |            RegisterWord |          0 |          0 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           u_gated_d_pc          |          ClockedPayload |         40 |         40 |       0 |    0 |   31 |      0 |      0 |          0 |
+|             u_gate              |       RegisterClock_106 |          2 |          2 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |         PayloadWord_107 |         38 |         38 |       0 |    0 |   30 |      0 |      0 |          0 |
+|           u_gated_e_branch      |       ClockedPayload_64 |          0 |          0 |       0 |    0 |    5 |      0 |      0 |          0 |
+|             u_word              |         PayloadWord_105 |          0 |          0 |       0 |    0 |    5 |      0 |      0 |          0 |
+|           u_gated_e_control     |       ClockedPayload_65 |          1 |          1 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |         PayloadWord_104 |          1 |          1 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_e_fetch_error |       ClockedPayload_66 |         10 |         10 |       0 |    0 |    2 |      0 |      0 |          0 |
+|             u_gate              |       RegisterClock_102 |          0 |          0 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |         PayloadWord_103 |         10 |         10 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_e_immlow      |       ClockedPayload_67 |         70 |         70 |       0 |    0 |    5 |      0 |      0 |          0 |
+|             u_word              |         PayloadWord_101 |         70 |         70 |       0 |    0 |    5 |      0 |      0 |          0 |
+|           u_gated_e_inst        |       ClockedPayload_68 |        439 |        439 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |         PayloadWord_100 |        439 |        439 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           u_gated_e_is_md       |       ClockedPayload_69 |          6 |          6 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_99 |          6 |          6 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_e_is_sb       |       ClockedPayload_70 |          1 |          1 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_98 |          1 |          1 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_e_pc          |       ClockedPayload_71 |         31 |         31 |       0 |    0 |   30 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_97 |         31 |         31 |       0 |    0 |   30 |      0 |      0 |          0 |
+|           u_gated_e_pred_taken  |       ClockedPayload_72 |         50 |         50 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_96 |         50 |         50 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_e_subtract    |       ClockedPayload_73 |          2 |          2 |       0 |    0 |    5 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_95 |          2 |          2 |       0 |    0 |    5 |      0 |      0 |          0 |
+|           u_gated_e_use_imm     |       ClockedPayload_74 |          0 |          0 |       0 |    0 |    8 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_94 |          0 |          0 |       0 |    0 |    8 |      0 |      0 |          0 |
+|           u_gated_e_zero_branch |       ClockedPayload_75 |          0 |          0 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_93 |          0 |          0 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_w_cause       |       ClockedPayload_76 |         11 |         11 |       0 |    0 |    5 |      0 |      0 |          0 |
+|             u_gate              |           RegisterClock |          0 |          0 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_92 |         11 |         11 |       0 |    0 |    4 |      0 |      0 |          0 |
+|           u_gated_w_f3          |       ClockedPayload_77 |         35 |         35 |       0 |    0 |    3 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_91 |         35 |         35 |       0 |    0 |    3 |      0 |      0 |          0 |
+|           u_gated_w_load        |       ClockedPayload_78 |         88 |         88 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_90 |         88 |         88 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_w_pc          |       ClockedPayload_79 |         42 |         42 |       0 |    0 |   30 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_89 |         42 |         42 |       0 |    0 |   30 |      0 |      0 |          0 |
+|           u_gated_w_rd          |       ClockedPayload_80 |          7 |          7 |       0 |    0 |    5 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_88 |          7 |          7 |       0 |    0 |    5 |      0 |      0 |          0 |
+|           u_gated_w_result      |       ClockedPayload_81 |        702 |        702 |       0 |    0 |   32 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_87 |        702 |        702 |       0 |    0 |   32 |      0 |      0 |          0 |
+|           u_gated_w_store       |       ClockedPayload_82 |          0 |          0 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_86 |          0 |          0 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_w_trap        |       ClockedPayload_83 |          4 |          4 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |          PayloadWord_85 |          4 |          4 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_gated_w_writes      |       ClockedPayload_84 |          2 |          2 |       0 |    0 |    1 |      0 |      0 |          0 |
+|             u_word              |             PayloadWord |          2 |          2 |       0 |    0 |    1 |      0 |      0 |          0 |
+|           u_md                  |                  MulDiv |        450 |        450 |       0 |    0 |   10 |      0 |      0 |          0 |
+|             u_small             |           CompactMulDiv |        450 |        450 |       0 |    0 |   10 |      0 |      0 |          0 |
+|           u_rf_write            |    RegisterWriteControl |         94 |         94 |       0 |    0 |    7 |      0 |      0 |          0 |
+|       u_ilm_dlm                 |               IlmDlmRam |        416 |        416 |       0 |    0 |    0 |     36 |      0 |          0 |
+|         (u_ilm_dlm)             |               IlmDlmRam |          1 |          1 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         planes_0                |          IlmDlmBitPlane |          6 |          6 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_1                |        IlmDlmBitPlane_0 |          3 |          3 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_10               |        IlmDlmBitPlane_1 |          3 |          3 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_11               |        IlmDlmBitPlane_2 |          3 |          3 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_12               |        IlmDlmBitPlane_3 |          3 |          3 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_13               |        IlmDlmBitPlane_4 |          4 |          4 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_14               |        IlmDlmBitPlane_5 |          5 |          5 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_15               |        IlmDlmBitPlane_6 |          5 |          5 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_16               |        IlmDlmBitPlane_7 |          4 |          4 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_17               |        IlmDlmBitPlane_8 |         36 |         36 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_18               |        IlmDlmBitPlane_9 |         41 |         41 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_19               |       IlmDlmBitPlane_10 |         19 |         19 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_2                |       IlmDlmBitPlane_11 |         29 |         29 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_20               |       IlmDlmBitPlane_12 |          4 |          4 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_21               |       IlmDlmBitPlane_13 |          7 |          7 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_22               |       IlmDlmBitPlane_14 |          3 |          3 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_23               |       IlmDlmBitPlane_15 |          6 |          6 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_24               |       IlmDlmBitPlane_16 |          6 |          6 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_25               |       IlmDlmBitPlane_17 |          5 |          5 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_26               |       IlmDlmBitPlane_18 |          6 |          6 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_27               |       IlmDlmBitPlane_19 |          9 |          9 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_28               |       IlmDlmBitPlane_20 |          4 |          4 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_29               |       IlmDlmBitPlane_21 |          5 |          5 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_3                |       IlmDlmBitPlane_22 |         31 |         31 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_30               |       IlmDlmBitPlane_23 |          4 |          4 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_31               |       IlmDlmBitPlane_24 |          7 |          7 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_4                |       IlmDlmBitPlane_25 |          9 |          9 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_5                |       IlmDlmBitPlane_26 |         41 |         41 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_6                |       IlmDlmBitPlane_27 |          7 |          7 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_7                |       IlmDlmBitPlane_28 |          5 |          5 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_8                |       IlmDlmBitPlane_29 |          3 |          3 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         planes_9                |       IlmDlmBitPlane_30 |          4 |          4 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         prediction_words_0      |    IlmDlmPredictionWord |          9 |          9 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         prediction_words_1      | IlmDlmPredictionWord_31 |         52 |         52 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         zero_planes_0           |       IlmDlmBitPlane_32 |          0 |          0 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         zero_planes_1           |       IlmDlmBitPlane_33 |         27 |         27 |       0 |    0 |    0 |      1 |      0 |          0 |
+|   u_result                      |             ClockResult |         45 |         45 |       0 |    0 |   64 |      0 |      0 |          0 |
+|   u_window                      |             ClockWindow |        127 |        127 |       0 |    0 |  176 |      0 |      0 |          0 |
++---------------------------------+-------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

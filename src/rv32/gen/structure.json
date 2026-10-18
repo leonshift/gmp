@@ -1,0 +1,1 @@
+{"isa": "rv32i_zmmul", "pipeline_stages": 4, "multiplier": "compact", "bp_entries": 8, "storage": "ff_except_ilm_dlm", "ilm_prediction_bytes": 16384}

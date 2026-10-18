@@ -1,0 +1,21 @@
+{
+  "part": "xc7k480tffg1156-2",
+  "top": "top",
+  "mode": "board",
+  "cpu_clock": "clk_raw",
+  "predict": 2,
+  "bp_entries": 8,
+  "perf": 0,
+  "pipeline_stages": 4,
+  "isa": "rv32i_zmmul",
+  "rev": "release",
+  "trace": 0,
+  "resource_policy": "ff_except_ilm_dlm_no_dsp",
+  "implementation_period_ns": 5.0,
+  "report_period_ns": 5.0,
+  "input_min_max_ns": null,
+  "output_delay_ns": null,
+  "post_route_optimization_floor_ns": -0.4,
+  "physical_flow_sha256": "55c6a18fbdccbbf265b833cffe39c0166e4111c84efedea234994c047d4267f3",
+  "incremental_reference_sha256": "213e82b7c3e282929adb0a08ea92e2b596e35b77326140d572d895b0c21509dc"
+}
