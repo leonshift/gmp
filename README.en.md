@@ -1,7 +1,7 @@
 <div align="center">
 
 <h1>GMP</h1>
-<p><strong>An end-to-end LLM inference chip built with AI agents</strong></p>
+<p><strong>An AI Native end-to-end LLM inference chip</strong></p>
 <p>Single Kintex-7 FPGA · Qwen3-0.6B · All 28 layers</p>
 
 <p>

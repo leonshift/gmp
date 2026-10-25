@@ -1,7 +1,7 @@
 <div align="center">
 
 <h1>GMP</h1>
-<p><strong>AI Agent 实现的端到端大模型推理芯片</strong></p>
+<p><strong>AI Native 端到端大模型推理芯片</strong></p>
 <p>单片 Kintex-7 FPGA 运行 Qwen3-0.6B，完成全部 28 层计算</p>
 
 <p>
