@@ -23,7 +23,7 @@
       "ticks": 18054
     }
   ],
-  "uart": "2K validation run parameters for coremark.\nCoreMark Size    : 666\nTotal ticks      : 17963\nTotal time (secs): 0\nERROR! Must execute for at least 10 secs for a valid result!\nIterations       : 10\nCompiler version : GCC 13.3.0\nCompiler flags   : -mabi=ilp32 -mcmodel=medlow -mno-relax -msmall-data-limit=0 -O2 -ffreestanding -fno-builtin -fno-common -fno-pie -nostdlib -nostartfiles -I/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port -I/home/colin/develop/forge/gmp/src/rv32/sw/coremark/src -DTOTAL_DATA_SIZE=2000 -DMAIN_HAS_NOARGC=1 -Wall -Wno-unused-but-set-variable -Wno-unused-variable -march=rv32i_zmmul -mno-div [link] -mabi=ilp32 -mcmodel=medlow -mno-relax -nostdlib -nostartfiles -static -no-pie -T/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port/link.ld -Wl,--gc-sections -Wl,-Map=/home/colin/develop/forge/gmp/src/rv32/out/coremark/coremark.map -march=rv32i_zmmul -mno-div\nMemory location  : Code, constants, static data and stack in simulated SRAM\nseedcrc          : 0x18f2\n[0]crclist       : 0xe3c1\n[0]crcmatrix     : 0x0747\n[0]crcstate      : 0x8d84\n[0]crcfinal      : 0xc64e\nErrors detected\n",
+  "uart": "2K validation run parameters for coremark.\nCoreMark Size    : 666\nTotal ticks      : 17963\nTotal time (secs): 0\nERROR! Must execute for at least 10 secs for a valid result!\nIterations       : 10\nCompiler version : GCC 13.3.0\nCompiler flags   : -mabi=ilp32 -mcmodel=medlow -mno-relax -msmall-data-limit=0 -O2 -ffreestanding -fno-builtin -fno-common -fno-pie -nostdlib -nostartfiles -I~/develop/forge/gmp/src/rv32/sw/coremark/port -I~/develop/forge/gmp/src/rv32/sw/coremark/src -DTOTAL_DATA_SIZE=2000 -DMAIN_HAS_NOARGC=1 -Wall -Wno-unused-but-set-variable -Wno-unused-variable -march=rv32i_zmmul -mno-div [link] -mabi=ilp32 -mcmodel=medlow -mno-relax -nostdlib -nostartfiles -static -no-pie -T~/develop/forge/gmp/src/rv32/sw/coremark/port/link.ld -Wl,--gc-sections -Wl,-Map=~/develop/forge/gmp/src/rv32/out/coremark/coremark.map -march=rv32i_zmmul -mno-div\nMemory location  : Code, constants, static data and stack in simulated SRAM\nseedcrc          : 0x18f2\n[0]crclist       : 0xe3c1\n[0]crcmatrix     : 0x0747\n[0]crcstate      : 0x8d84\n[0]crcfinal      : 0xc64e\nErrors detected\n",
   "model_manifest": {
     "parameters": {
       "predict": 2,
@@ -95,13 +95,13 @@
     "coremark.h": "42642b9a06c7ed2b3bd9eda971b7c3868c4f5d27bf7ef6c4bba11291a0c2598a"
   },
   "software_source_sha256": {
-    "/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port/core_portme.c": "535c3195dfd005006bf79fc4a0943707c6ff5b532d4317cc4daf84908b83bda5",
-    "/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port/ee_printf.c": "ecff21486b94e53a2530f49e611b0b6982a87f211f4bea97661e4f4a38708e03",
-    "/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port/softmul.c": "f9ec312bfd43bc3a91bed5145d3630b38cf0f064b6b4252bc72ac3dda30c2dca",
-    "/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port/core_portme.h": "d1f71513771419978223dcff2f0f117e41135328fd3d603fc2fefb0cdcca8e3b",
-    "/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port/crt0.S": "9711f1f3d8c6b34c3f0957cfcd4a813a2d89d6da1e26f9e3ae61417b14955a37",
-    "/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port/link.ld": "99d2445cb92d5100adf960e0e664ac811ac0b788149db63ab5e18ccb4671048c",
-    "/home/colin/develop/forge/gmp/src/rv32/sw/coremark.mk": "4f062749c2dd516294f74a5fbc4a6bd92d210b097a438e47a014fc1bf1492ce8",
-    "/home/colin/develop/forge/gmp/src/rv32/sw/softdiv.c": "9fcc9d40c91621aa12304451310c6825333b3435906195b7339eb2be9374f3b4"
+    "~/develop/forge/gmp/src/rv32/sw/coremark/port/core_portme.c": "535c3195dfd005006bf79fc4a0943707c6ff5b532d4317cc4daf84908b83bda5",
+    "~/develop/forge/gmp/src/rv32/sw/coremark/port/ee_printf.c": "ecff21486b94e53a2530f49e611b0b6982a87f211f4bea97661e4f4a38708e03",
+    "~/develop/forge/gmp/src/rv32/sw/coremark/port/softmul.c": "f9ec312bfd43bc3a91bed5145d3630b38cf0f064b6b4252bc72ac3dda30c2dca",
+    "~/develop/forge/gmp/src/rv32/sw/coremark/port/core_portme.h": "d1f71513771419978223dcff2f0f117e41135328fd3d603fc2fefb0cdcca8e3b",
+    "~/develop/forge/gmp/src/rv32/sw/coremark/port/crt0.S": "9711f1f3d8c6b34c3f0957cfcd4a813a2d89d6da1e26f9e3ae61417b14955a37",
+    "~/develop/forge/gmp/src/rv32/sw/coremark/port/link.ld": "99d2445cb92d5100adf960e0e664ac811ac0b788149db63ab5e18ccb4671048c",
+    "~/develop/forge/gmp/src/rv32/sw/coremark.mk": "4f062749c2dd516294f74a5fbc4a6bd92d210b097a438e47a014fc1bf1492ce8",
+    "~/develop/forge/gmp/src/rv32/sw/softdiv.c": "9fcc9d40c91621aa12304451310c6825333b3435906195b7339eb2be9374f3b4"
   }
 }

@@ -4,7 +4,7 @@
   "perf": 0,
   "trace": 0,
   "pipeline_stages": 4,
-  "library": "/home/colin/tools/orfs-rootfs/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib",
+  "library": "~/tools/orfs-rootfs/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib",
   "library_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
   "source_sha256": {
     "Decode.v": "e98b8504a8434ed2ad5e2389f7bb3923ab8ece042cdbe28b29ab8596d2494e69",

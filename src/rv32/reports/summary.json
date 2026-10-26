@@ -1,6 +1,6 @@
 [
   {
-    "run": "/home/colin/develop/forge/gmp/src/rv32/build/board/release-p2-b8-c0",
+    "run": "~/develop/forge/gmp/src/rv32/build/board/release-p2-b8-c0",
     "configuration": {
       "part": "xc7k480tffg1156-2",
       "top": "top",
@@ -35,7 +35,7 @@
     },
     "isa": "rv32i_zmmul",
     "compiler_version": "GCC 13.3.0",
-    "compiler_flags": "-mabi=ilp32 -mcmodel=medlow -mno-relax -msmall-data-limit=0 -O2 -ffreestanding -fno-builtin -fno-common -fno-pie -nostdlib -nostartfiles -I/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port -I/home/colin/develop/forge/gmp/src/rv32/sw/coremark/src -DTOTAL_DATA_SIZE=2000 -DMAIN_HAS_NOARGC=1 -Wall -Wno-unused-but-set-variable -Wno-unused-variable -march=rv32i_zmmul -mno-div [link] -mabi=ilp32 -mcmodel=medlow -mno-relax -nostdlib -nostartfiles -static -no-pie -T/home/colin/develop/forge/gmp/src/rv32/sw/coremark/port/link.ld -Wl,--gc-sections -Wl,-Map=/home/colin/develop/forge/gmp/src/rv32/out/coremark/coremark.map -march=rv32i_zmmul -mno-div",
+    "compiler_flags": "-mabi=ilp32 -mcmodel=medlow -mno-relax -msmall-data-limit=0 -O2 -ffreestanding -fno-builtin -fno-common -fno-pie -nostdlib -nostartfiles -I~/develop/forge/gmp/src/rv32/sw/coremark/port -I~/develop/forge/gmp/src/rv32/sw/coremark/src -DTOTAL_DATA_SIZE=2000 -DMAIN_HAS_NOARGC=1 -Wall -Wno-unused-but-set-variable -Wno-unused-variable -march=rv32i_zmmul -mno-div [link] -mabi=ilp32 -mcmodel=medlow -mno-relax -nostdlib -nostartfiles -static -no-pie -T~/develop/forge/gmp/src/rv32/sw/coremark/port/link.ld -Wl,--gc-sections -Wl,-Map=~/develop/forge/gmp/src/rv32/out/coremark/coremark.map -march=rv32i_zmmul -mno-div",
     "core": {
       "lut": 2500,
       "logic_lut": 2500,
@@ -58,7 +58,7 @@
     },
     "timing_scope": "board_full",
     "board_snapshot_verified": true,
-    "measurement": "/home/colin/develop/forge/gmp/src/rv32/out/coremark/ff-p2-b8-c0-release-t0/perf.json",
+    "measurement": "~/develop/forge/gmp/src/rv32/out/coremark/ff-p2-b8-c0-release-t0/perf.json",
     "measurement_trace": 0,
     "resource_met": true,
     "resource_checks": [
@@ -101,7 +101,7 @@
     "coremark_per_mhz_per_kgate": 0.17460163390326802,
     "normalized_estimate_per_gate": 0.00017460163398577935,
     "core_nand2_ge": 16239.333333333334,
-    "gate_library": "/home/colin/tools/orfs-rootfs/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib",
+    "gate_library": "~/tools/orfs-rootfs/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib",
     "gate_library_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
     "gate_includes_flip_flops": true,
     "image_sha256": "0df70c7befe57f2b47d4acc5936665b6e2ab6ec2db1ae4f1b16e7b73a0e7afad",

@@ -1,0 +1,201 @@
+module FpAddX (
+    input clk,
+    input rst_n,
+    input [31:0] a,
+    input [31:0] b,
+    input az_in,
+    output logic [31:0] res
+);
+    logic az;
+    logic bz;
+    logic swp;
+    logic [31:0] x;
+    logic [7:0] ae;
+    logic [7:0] be;
+    logic [26:0] am3;
+    logic [26:0] bm3;
+    logic [23:0] amh;
+    logic [23:0] bmh;
+    logic [7:0] dab;
+    logic [7:0] dba;
+    logic [4:0] dcp_ab;
+    logic [4:0] dcp_ba;
+    logic xs;
+    logic [7:0] xe;
+    logic xz;
+    logic yz;
+    logic [26:0] xm3;
+    logic [23:0] ymh;
+    logic [4:0] dcp;
+    logic sub;
+    logic [26:0] r1_xm3;
+    logic [23:0] r1_ymh;
+    logic [4:0] r1_dcp;
+    logic [7:0] r1_xe;
+    logic r1_xs;
+    logic r1_xz;
+    logic r1_yz;
+    logic r1_sub;
+    logic [31:0] r1_x;
+    logic [26:0] ym3s;
+    logic [26:0] ym3;
+    logic [27:0] ssum;
+    logic [26:0] sdif;
+    logic dnz_c;
+    logic near;
+    logic [26:0] ymn;
+    logic [26:0] sdn;
+    logic [31:0] c32n;
+    logic bk4n;
+    logic bk3n;
+    logic [31:0] f2n;
+    logic bk4_c;
+    logic bk3_c;
+    logic [31:0] f2_c;
+    logic [7:0] xem26_c;
+    logic [8:0] ut9_c;
+    logic [8:0] ot9_c;
+    logic [27:0] p_ssum;
+    logic p_bk4;
+    logic p_bk3;
+    logic [31:0] p_f2;
+    logic p_dnz;
+    logic [7:0] p_xe;
+    logic [7:0] p_xem26;
+    logic p_uen;
+    logic [4:0] p_ut;
+    logic p_oen;
+    logic [4:0] p_ot;
+    logic p_xe0;
+    logic p_xe255;
+    logic p_xe254;
+    logic p_xs;
+    logic p_xz;
+    logic p_yz;
+    logic p_sub;
+    logic [31:0] p_x;
+    logic top;
+    logic [23:0] sm;
+    logic [7:0] h2;
+    logic lzb_0;
+    logic lzb_1;
+    logic lzb_2;
+    logic [2:0] dlo;
+    logic [31:0] f5;
+    logic [4:0] dmsb;
+    logic [26:0] dnrm;
+    logic [7:0] de8;
+    logic [7:0] se8;
+    logic [7:0] re8;
+    logic undf_s;
+    logic ovf_s;
+    logic undf_a;
+    logic ovf_a;
+    logic undf;
+    logic ovf;
+    logic [23:0] dm;
+    logic [23:0] rm;
+    logic [22:0] mout;
+
+    assign az = ((a[30:23] == 0) | az_in);
+    assign bz = (b[30:23] == 0);
+    assign swp = (az ? (~bz) : (b[30:0] > a[30:0]));
+    assign x = (swp ? b : a);
+    assign ae = a[30:23];
+    assign be = b[30:23];
+    assign am3 = {1'd1, a[22:0], 3'd0};
+    assign bm3 = {1'd1, b[22:0], 3'd0};
+    assign amh = (az ? 24'd0 : {1'd1, a[22:0]});
+    assign bmh = (bz ? 24'd0 : {1'd1, b[22:0]});
+    assign dab = (ae - be);
+    assign dba = (be - ae);
+    assign dcp_ab = ((dab > 26) ? 5'd26 : dab[4:0]);
+    assign dcp_ba = ((dba > 26) ? 5'd26 : dba[4:0]);
+    assign xs = (swp ? b[31] : a[31]);
+    assign xe = (swp ? be : ae);
+    assign xz = (swp ? bz : az);
+    assign yz = (swp ? az : bz);
+    assign xm3 = (swp ? bm3 : am3);
+    assign ymh = (swp ? amh : bmh);
+    assign dcp = (swp ? dcp_ba : dcp_ab);
+    assign sub = (a[31] ^ b[31]);
+    assign ym3s = {r1_ymh, 3'd0};
+    assign ym3 = (ym3s >> r1_dcp);
+    assign ssum = ({1'd0, r1_xm3} + {1'd0, ym3});
+    assign sdif = (r1_xm3 - ym3);
+    assign dnz_c = (r1_xm3 != ym3);
+    assign near = (r1_dcp[4:1] == 0);
+    assign ymn = (r1_dcp[0] ? (ym3s >> 1) : ym3s);
+    assign sdn = (r1_xm3 - ymn);
+    assign c32n = {5'd0, sdn};
+    assign bk4n = (c32n[31:16] != 0);
+    assign bk3n = (bk4n ? (c32n[31:24] != 0) : (c32n[15:8] != 0));
+    assign f2n = (({bk4n, bk3n} == 0) ? (c32n << 24) :
+                 (({bk4n, bk3n} == 1) ? (c32n << 16) :
+                 (({bk4n, bk3n} == 2) ? (c32n << 8) :
+                 c32n)));
+    assign bk4_c = (near ? bk4n : 1'd1);
+    assign bk3_c = (near ? bk3n : 1'd1);
+    assign f2_c = (near ? f2n : {5'd0, sdif});
+    assign xem26_c = (r1_xe - 8'd26);
+    assign ut9_c = (9'd26 - {1'd0, r1_xe});
+    assign ot9_c = (9'd281 - {1'd0, r1_xe});
+    assign top = p_ssum[27];
+    assign sm = (top ? p_ssum[27:4] : p_ssum[26:3]);
+    assign h2 = p_f2[31:24];
+    assign lzb_0 = (h2[7:4] != 0);
+    assign lzb_1 = (lzb_0 ? (h2[7:6] != 0) : (h2[3:2] != 0));
+    assign lzb_2 = (lzb_0 ? (lzb_1 ? h2[7] : h2[5]) : (lzb_1 ? h2[3] : h2[1]));
+    assign dlo = {lzb_0, lzb_1, lzb_2};
+    assign f5 = (p_f2 << (~dlo));
+    assign dmsb = {p_bk4, p_bk3, dlo};
+    assign dnrm = f5[31:5];
+    assign de8 = (p_xem26 + {3'd0, dmsb});
+    assign se8 = (top ? (p_xe + 8'd1) : p_xe);
+    assign re8 = (p_sub ? de8 : se8);
+    assign undf_s = (p_uen & (p_ut >= dmsb));
+    assign ovf_s = (p_oen & (p_ot <= dmsb));
+    assign undf_a = (p_xe0 & (~top));
+    assign ovf_a = (p_xe255 | (p_xe254 & top));
+    assign undf = (p_sub ? undf_s : undf_a);
+    assign ovf = (p_sub ? ovf_s : ovf_a);
+    assign dm = dnrm[26:3];
+    assign rm = (p_sub ? dm : sm);
+    assign mout = rm[22:0];
+    assign res = (p_xz ? 32'd0 :
+                 (p_yz ? p_x :
+                 ((p_sub & (~p_dnz)) ? 32'd0 :
+                 (undf ? {p_xs, 31'd0} :
+                 (ovf ? {p_xs, 31'd2139095040} :
+                 {p_xs, re8, mout})))));
+    always_ff @(posedge clk) begin
+        r1_xm3 <= xm3;
+        r1_ymh <= ymh;
+        r1_dcp <= dcp;
+        r1_xe <= xe;
+        r1_xs <= xs;
+        r1_xz <= xz;
+        r1_yz <= yz;
+        r1_sub <= sub;
+        r1_x <= x;
+        p_ssum <= ssum;
+        p_bk4 <= bk4_c;
+        p_bk3 <= bk3_c;
+        p_f2 <= f2_c;
+        p_dnz <= dnz_c;
+        p_xe <= r1_xe;
+        p_xem26 <= xem26_c;
+        p_uen <= (r1_xe <= 26);
+        p_ut <= ut9_c[4:0];
+        p_oen <= (ot9_c <= 31);
+        p_ot <= ot9_c[4:0];
+        p_xe0 <= (r1_xe == 0);
+        p_xe255 <= (r1_xe == 255);
+        p_xe254 <= (r1_xe == 254);
+        p_xs <= r1_xs;
+        p_xz <= r1_xz;
+        p_yz <= r1_yz;
+        p_sub <= r1_sub;
+        p_x <= r1_x;
+    end
+endmodule
